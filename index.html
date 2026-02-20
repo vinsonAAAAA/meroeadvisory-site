@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mero&euml; Advisory LLC | Strategic Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-900: #0d1730;
+      --navy-700: #1a2b52;
+      --navy-500: #2f4478;
+      --sand-200: #f2ebe2;
+      --sand-300: #e7dac9;
+      --copper: #b87c4f;
+      --ink: #1b2132;
+      --paper: #faf9f7;
+      --white: #ffffff;
+      --radius: 18px;
+      --shadow: 0 16px 36px rgba(13, 23, 48, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 88% 10%, rgba(184, 124, 79, 0.2), transparent 28%),
+        radial-gradient(circle at 12% 82%, rgba(47, 68, 120, 0.2), transparent 34%),
+        linear-gradient(150deg, #f9f7f3 0%, #f4eee6 45%, #f7f6f3 100%);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    .shell {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+      padding: 1.2rem 0 3.5rem;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      margin-top: 0.5rem;
+      backdrop-filter: blur(8px);
+      background: rgba(250, 249, 247, 0.78);
+      border: 1px solid rgba(26, 43, 82, 0.08);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.65rem 1rem;
+    }
+
+    .brand-mark {
+      font-family: "Cinzel", Georgia, serif;
+      letter-spacing: 0.08em;
+      color: var(--navy-900);
+      text-transform: uppercase;
+      font-size: 0.88rem;
+      margin-left: 0.35rem;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--navy-700);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      font-weight: 700;
+      padding: 0.32rem 0.5rem;
+    }
+
+    .nav-links .cta {
+      color: var(--white);
+      background: linear-gradient(120deg, var(--navy-700), var(--navy-500));
+      border-radius: 999px;
+      padding: 0.42rem 0.95rem;
+      box-shadow: 0 10px 20px rgba(13, 23, 48, 0.23);
+    }
+
+    .domain-note {
+      margin-top: 0.75rem;
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      color: var(--navy-700);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(26, 43, 82, 0.4);
+    }
+
+    .hero {
+      margin-top: 2.2rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+      animation: appear 0.9s ease-out both;
+    }
+
+    .hero-panel {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(248, 242, 234, 0.88));
+      border-radius: var(--radius);
+      border: 1px solid rgba(26, 43, 82, 0.12);
+      box-shadow: var(--shadow);
+      padding: 2.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      right: -105px;
+      top: -130px;
+      background: radial-gradient(circle, rgba(184, 124, 79, 0.26), transparent 72%);
+      pointer-events: none;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.73rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--copper);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Cinzel", Georgia, serif;
+      color: var(--navy-900);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      line-height: 1.2;
+      letter-spacing: 0.015em;
+    }
+
+    .hero p {
+      margin: 1rem 0 0;
+      max-width: 58ch;
+      font-size: 1.02rem;
+    }
+
+    .hero-actions {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 0.74rem 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 0.74rem;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--navy-700), var(--navy-500));
+      color: var(--white);
+    }
+
+    .btn-secondary {
+      color: var(--navy-700);
+      border: 1px solid rgba(26, 43, 82, 0.26);
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .logo-card {
+      background: linear-gradient(155deg, rgba(9, 20, 45, 0.98), rgba(28, 46, 89, 0.93));
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .logo-card img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #f0f0f0;
+      object-fit: cover;
+      max-height: 390px;
+    }
+
+    .logo-caption {
+      color: rgba(250, 247, 243, 0.94);
+      font-size: 0.84rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .grid {
+      margin-top: 2.2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      animation: slide-up 0.9s ease-out 0.15s both;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(26, 43, 82, 0.1);
+      border-radius: 14px;
+      padding: 1.1rem;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-family: "Cinzel", Georgia, serif;
+      font-size: 1.02rem;
+      color: var(--navy-900);
+    }
+
+    .card p {
+      margin: 0.6rem 0 0;
+      font-size: 0.92rem;
+    }
+
+    .contact {
+      margin-top: 2.2rem;
+      background: linear-gradient(180deg, #0f1d3c 0%, #132a59 100%);
+      color: var(--paper);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 1.6rem;
+      animation: slide-up 0.9s ease-out 0.2s both;
+    }
+
+    .contact h2 {
+      margin: 0;
+      font-family: "Cinzel", Georgia, serif;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 1.15rem;
+    }
+
+    .contact p {
+      margin: 0.55rem 0 0.95rem;
+      max-width: 68ch;
+      color: rgba(250, 247, 243, 0.88);
+    }
+
+    .direct-email {
+      margin: 0.25rem 0 0.6rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      color: rgba(250, 247, 243, 0.95);
+    }
+
+    .direct-email a {
+      color: #f7c89b;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(247, 200, 155, 0.6);
+    }
+
+    form {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.78rem 0.9rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      font: inherit;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      justify-self: start;
+      background: linear-gradient(120deg, #d09a6a, #b87c4f);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.74rem;
+      padding: 0.78rem 1.2rem;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 1.75rem;
+      font-size: 0.8rem;
+      color: rgba(27, 33, 50, 0.75);
+      padding-bottom: 0.8rem;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slide-up {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        border-radius: 16px;
+      }
+
+      .logo-card img {
+        max-height: 320px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(1120px, 94vw);
+      }
+
+      .topbar {
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem;
+      }
+
+      .brand-mark {
+        margin: 0;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero-panel,
+      .logo-card,
+      .contact {
+        padding: 1.2rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .submit-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand-mark">Mero&euml; Advisory LLC</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact" class="cta">Confidential Inquiry</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="about">
+        <div class="hero-panel">
+          <span class="tag">Strategic Intelligence Advisory</span>
+          <h1>Risk clarity for leaders operating in high-consequence environments.</h1>
+          <p>
+            Mero&euml; Advisory LLC provides executive-level consulting at the intersection of cybersecurity,
+            organizational resilience, and intelligence-driven due diligence.
+          </p>
+          <p>
+            Led by an experienced former CIA operations officer, we support founders, boards, and security leaders
+            with discreet analysis and practical risk strategies.
+          </p>
+          <a class="domain-note" href="https://meroeadvisory.com">meroeadvisory.com</a>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Request Consultation</a>
+            <a href="#services" class="btn btn-secondary">View Capabilities</a>
+          </div>
+        </div>
+
+        <aside class="logo-card" aria-label="Brand identity">
+          <img src="Meroe Advisory Logo.png" alt="Mero&euml; Advisory LLC logo">
+          <div class="logo-caption">Intelligence. Security. Resilience.</div>
+        </aside>
+      </section>
+
+      <section class="grid" id="services" aria-label="Core services">
+        <article class="card">
+          <h2>Strategic Due Diligence</h2>
+          <p>Human-centered, intelligence-backed investigations that surface hidden operational and geopolitical risk.</p>
+        </article>
+        <article class="card">
+          <h2>Cyber Risk Posture</h2>
+          <p>Executive guidance on cyber exposure, response readiness, and board-level decision support.</p>
+        </article>
+        <article class="card">
+          <h2>Organizational Resilience</h2>
+          <p>Scenario planning and leadership preparation for disruption, uncertainty, and reputation-sensitive events.</p>
+        </article>
+      </section>
+
+      <section class="contact" id="contact">
+        <h2>Confidential Inquiry</h2>
+        <p>
+          Share a brief summary of your challenge and preferred timeline. We will respond with next-step options
+          appropriate to your situation.
+        </p>
+        <div class="direct-email">
+          Direct email: <a href="mailto:contact@meroeadvisory.com">contact@meroeadvisory.com</a>
+        </div>
+        <form action="https://formspree.io/f/mzdaareg" method="POST">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="_replyto" placeholder="Professional Email" required>
+          <textarea name="message" placeholder="Nature of your inquiry..." required></textarea>
+          <input type="hidden" name="_subject" value="New Inquiry for Mero&euml; Advisory">
+          <button type="submit" class="submit-btn">Submit Request</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2026 Mero&euml; Advisory LLC | Reston, Virginia | Worldwide Strategic Operations
+    </footer>
+  </div>
+</body>
+</html>
